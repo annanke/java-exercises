@@ -15,6 +15,20 @@ package pl.edu.agh.java.exercises.arrays;
  */
 public class ArraySpan {
 	public int maxSpan(int[] array) {
-		throw new UnsupportedOperationException();
+
+		int maxSpanValue=0;
+		String stringFromArray="";
+		for (int element : array) {
+			stringFromArray=stringFromArray+element;
+		}
+		for(int i=0; i<array.length; i++) {
+			int firstIndex=stringFromArray.indexOf(Integer.toString(array[i]));
+			int lastIndex=stringFromArray.lastIndexOf(Integer.toString(array[i]));
+			if ((lastIndex-firstIndex)>=maxSpanValue) {
+				maxSpanValue=lastIndex-firstIndex+1;
+				System.out.println(maxSpanValue);
+			}
+		}
+		return maxSpanValue;
 	}
 }
